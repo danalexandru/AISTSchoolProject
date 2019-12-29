@@ -30,6 +30,6 @@ while (length(den) > 1)
 end
 
 %% Add nominator and denominator to tf dictionary
-dict_d_f_tf('amplifier') = num;
-dict_d_f_tf('time_constant') = den;
+dict_d_f_tf('nominator') = num;
+dict_d_f_tf('denominator') = den;
 end

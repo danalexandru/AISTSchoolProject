@@ -53,4 +53,11 @@ dict_frac_d_r_2 = get_nomilator_denomilator_from_tf(dict_d_r_tf_2);
 simulate_model_debit(dict_frac_f_1, dict_frac_r_1, dict_frac_d_f_1, dict_frac_d_r_1, 1);
 simulate_model_debit(dict_frac_f_2, dict_frac_r_2, dict_frac_d_f_2, dict_frac_d_r_2, 2);
 
+%% Get the temperature and pressure transfer functinos
+Ts = 0.1;
+q0 = 1;
+
+[dict_d_p_tf_3, dict_d_r_tf_3] = get_temperature_system_values(Ts, q0);
+[dict_d_p_tf_4, dict_d_r_tf_4] = get_pressure_system_values(Ts, q0);
+
 end
