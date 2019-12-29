@@ -28,7 +28,7 @@ dict_d_p_tf('value') = B/A;
 %% Get the regulator transfer function
 dict_d_r_tf = containers.Map;
 
-dict_d_r_tf('value') = q0*A/(1 - q0*B);
+dict_d_r_tf('value') = q0*A/(1*z^(length(den) - 1) - q0*B);
 dict_frac_f = get_nomilator_denomilator_from_tf(dict_d_r_tf);
 
 dict_d_r_tf('nominator') = dict_frac_f('nominator');

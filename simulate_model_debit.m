@@ -30,8 +30,8 @@ assignin('base', 'num_d_r', num_d_r);
 assignin('base', 'den_d_r', den_d_r);
 
 %% Simulate the model
-load_system('model_1.mdl');
-sim('model_1.mdl', 100);
+load_system('model_12.mdl');
+sim('model_12.mdl', 100);
 figure(index);
 plot(y_out_ideal.time, y_out_ideal.signals.values, '-.k');
 grid on;
