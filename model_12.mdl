@@ -1,5 +1,5 @@
 Model {
-  Name			  "model_1"
+  Name			  "model_12"
   Version		  8.7
   MdlSubVersion		  1
   SavedCharacterEncoding  "windows-1252"
@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.18"
+    ComputedModelVersion    "1.19"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -57,8 +57,8 @@ Model {
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
 	Extents			[924.0, 872.0]
-	ZoomFactor		[0.89332003988035891]
-	Offset			[-15.671875, -5.6130022321428328]
+	ZoomFactor		[0.86737657308809291]
+	Offset			[-1.140625, -312.66517857142861]
       }
     }
   }
@@ -68,9 +68,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "danba"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Dec 07 19:00:03 2019"
-  RTWModifiedTimeStamp	  497644603
-  ModelVersionFormat	  "1.%<AutoIncrement:18>"
+  LastModifiedDate	  "Tue Dec 31 18:33:04 2019"
+  RTWModifiedTimeStamp	  499717982
+  ModelVersionFormat	  "1.%<AutoIncrement:19>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -121,7 +121,7 @@ Model {
     $ObjectID		    6
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "model_1"
-    overrideMode_	    [0U]
+    overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
       Dimension		      1
@@ -813,7 +813,7 @@ Model {
   }
   BlockParameterDefaults {
     Block {
-      BlockType		      DiscreteTransferFcn
+      BlockType		      DiscreteFilter
       NumeratorSource	      "Dialog"
       Numerator		      "[1]"
       DenominatorSource	      "Dialog"
@@ -897,17 +897,9 @@ Model {
       NumInputs		      "1"
       SampleTime	      "0"
     }
-    Block {
-      BlockType		      TransferFcn
-      Numerator		      "[1]"
-      Denominator	      "[1 2 1]"
-      AbsoluteTolerance	      "auto"
-      ContinuousStateAttributes	"''"
-      Realization	      "auto"
-    }
   }
   System {
-    Name		    "model_1"
+    Name		    "model_12"
     Location		    [953, 0, 1927, 1047]
     Open		    on
     ModelBrowserVisibility  off
@@ -920,132 +912,141 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "89"
+    ZoomFactor		    "87"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "26"
+    SIDHighWatermark	    "44"
     Block {
-      BlockType		      TransferFcn
-      Name		      "Continuous Process"
-      SID		      "7"
-      Position		      [485, 382, 545, 418]
-      ZOrder		      66
-      Numerator		      "num_f"
-      Denominator	      "den_f"
-    }
-    Block {
-      BlockType		      TransferFcn
-      Name		      "Continuous Process3"
-      SID		      "8"
-      Position		      [220, 382, 280, 418]
-      ZOrder		      68
-      Numerator		      "num_r"
-      Denominator	      "den_r"
-    }
-    Block {
-      BlockType		      DiscreteTransferFcn
-      Name		      "Discrete Process"
-      SID		      "18"
+      BlockType		      DiscreteFilter
+      Name		      "1/S"
+      SID		      "27"
       Ports		      [1, 1]
-      Position		      [485, 662, 545, 698]
-      ZOrder		      78
+      Position		      [335, 12, 395, 48]
+      ZOrder		      138
+      InputPortMap	      "u0"
+      Denominator	      "s"
+      SampleTime	      "Ts"
+    }
+    Block {
+      BlockType		      DiscreteFilter
+      Name		      "1/S1"
+      SID		      "28"
+      Ports		      [1, 1]
+      Position		      [310, 192, 370, 228]
+      ZOrder		      141
+      InputPortMap	      "u0"
+      Denominator	      "s"
+      SampleTime	      "Ts"
+    }
+    Block {
+      BlockType		      DiscreteFilter
+      Name		      "Discrete Filter1"
+      SID		      "29"
+      Ports		      [1, 1]
+      Position		      [600, 192, 660, 228]
+      ZOrder		      143
       InputPortMap	      "u0"
       Numerator		      "num_d_f"
       Denominator	      "den_d_f"
       SampleTime	      "Ts"
     }
     Block {
-      BlockType		      DiscreteTransferFcn
-      Name		      "Discrete Regumator"
-      SID		      "19"
+      BlockType		      DiscreteFilter
+      Name		      "Discrete Filter2"
+      SID		      "30"
       Ports		      [1, 1]
-      Position		      [220, 662, 280, 698]
-      ZOrder		      77
+      Position		      [600, 12, 660, 48]
+      ZOrder		      139
       InputPortMap	      "u0"
-      Numerator		      "num_d_r"
-      Denominator	      "den_d_r"
+      Numerator		      "num_d_f"
+      Denominator	      "den_d_f"
       SampleTime	      "Ts"
-      a0EqualsOne	      on
     }
     Block {
       BlockType		      Mux
       Name		      "Mux"
-      SID		      "16"
-      Ports		      [3, 1]
-      Position		      [885, 521, 890, 559]
-      ZOrder		      72
+      SID		      "31"
+      Ports		      [2, 1]
+      Position		      [945, 156, 950, 194]
+      ZOrder		      130
       ShowName		      off
-      Inputs		      "3"
+      Inputs		      "2"
       DisplayOption	      "bar"
+    }
+    Block {
+      BlockType		      DiscreteFilter
+      Name		      "R"
+      SID		      "32"
+      Ports		      [1, 1]
+      Position		      [455, 122, 515, 158]
+      ZOrder		      140
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      InputPortMap	      "u0"
+      Numerator		      "r"
+      Denominator	      "[1]"
+      SampleTime	      "Ts"
+    }
+    Block {
+      BlockType		      DiscreteFilter
+      Name		      "R1"
+      SID		      "33"
+      Ports		      [1, 1]
+      Position		      [465, 317, 525, 353]
+      ZOrder		      142
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      InputPortMap	      "u0"
+      Numerator		      "r"
+      Denominator	      "[1]"
+      SampleTime	      "Ts"
     }
     Block {
       BlockType		      Scope
       Name		      "Scope"
-      SID		      "5"
+      SID		      "34"
       Ports		      [1]
-      Position		      [645, 154, 675, 186]
-      ZOrder		      5
-      ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData'))"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "Scope1"
-      SID		      "9"
-      Ports		      [1]
-      Position		      [645, 384, 675, 416]
-      ZOrder		      64
-      ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData1'))"
+      Position		      [830, 319, 860, 351]
+      ZOrder		      128
+      ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData'),StrPVP('LimitDataPoints','on'),StrPVP('DataFormat"
+      "','Array'),StrPVP('Decimation','1'),StrPVP('BlockParamSampleInput','off'),StrPVP('SaveName','ScopeData1'),StrPVP"
+      "('SaveName','ScopeData1'))"
     }
     Block {
       BlockType		      Scope
       Name		      "Scope2"
-      SID		      "17"
+      SID		      "35"
       Ports		      [1]
-      Position		      [970, 524, 1000, 556]
-      ZOrder		      73
-      ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData3'))"
+      Position		      [1015, 159, 1045, 191]
+      ZOrder		      131
+      ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData3'),StrPVP('LimitDataPoints','on'),StrPVP('DataForma"
+      "t','Array'),StrPVP('Decimation','1'),StrPVP('BlockParamSampleInput','off'),StrPVP('SaveName','ScopeData3'),StrPV"
+      "P('SaveName','ScopeData2'))"
     }
     Block {
       BlockType		      Scope
       Name		      "Scope3"
-      SID		      "20"
+      SID		      "36"
       Ports		      [1]
-      Position		      [745, 664, 775, 696]
-      ZOrder		      75
-      ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData4'))"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "Scope4"
-      SID		      "10"
-      Ports		      [1]
-      Position		      [325, 444, 355, 476]
-      ZOrder		      71
-      ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData2'))"
+      Position		      [830, 124, 860, 156]
+      ZOrder		      133
+      ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData4'),StrPVP('LimitDataPoints','on'),StrPVP('DataForma"
+      "t','Array'),StrPVP('Decimation','1'),StrPVP('BlockParamSampleInput','off'),StrPVP('SaveName','ScopeData4'),StrPV"
+      "P('SaveName','ScopeData'))"
     }
     Block {
       BlockType		      Step
       Name		      "Step"
-      SID		      "1"
-      Position		      [0, 155, 30, 185]
-      ZOrder		      1
+      SID		      "37"
+      Position		      [15, 15, 45, 45]
+      ZOrder		      126
       SampleTime	      "0.01"
     }
     Block {
       BlockType		      Step
-      Name		      "Step3"
-      SID		      "12"
-      Position		      [265, 485, 295, 515]
-      ZOrder		      69
-      Time		      "3"
-      After		      "0.2"
-      SampleTime	      "1"
-    }
-    Block {
-      BlockType		      Step
       Name		      "Step4"
-      SID		      "26"
-      Position		      [265, 750, 295, 780]
-      ZOrder		      82
+      SID		      "38"
+      Position		      [350, 280, 380, 310]
+      ZOrder		      136
       Time		      "3"
       After		      "0.2"
       SampleTime	      "1"
@@ -1053,24 +1054,10 @@ Model {
     Block {
       BlockType		      Sum
       Name		      "Sum"
-      SID		      "4"
+      SID		      "39"
       Ports		      [2, 1]
-      Position		      [105, 160, 125, 180]
-      ZOrder		      4
-      ShowName		      off
-      IconShape		      "round"
-      Inputs		      "|+-"
-      InputSameDT	      off
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      Sum
-      Name		      "Sum1"
-      SID		      "13"
-      Ports		      [2, 1]
-      Position		      [125, 390, 145, 410]
-      ZOrder		      63
+      Position		      [215, 20, 235, 40]
+      ZOrder		      127
       ShowName		      off
       IconShape		      "round"
       Inputs		      "|+-"
@@ -1081,10 +1068,10 @@ Model {
     Block {
       BlockType		      Sum
       Name		      "Sum2"
-      SID		      "23"
+      SID		      "40"
       Ports		      [2, 1]
-      Position		      [125, 670, 145, 690]
-      ZOrder		      74
+      Position		      [210, 200, 230, 220]
+      ZOrder		      132
       ShowName		      off
       IconShape		      "round"
       Inputs		      "|+-"
@@ -1095,10 +1082,10 @@ Model {
     Block {
       BlockType		      Sum
       Name		      "Sum3"
-      SID		      "24"
+      SID		      "41"
       Ports		      [2, 1]
-      Position		      [370, 670, 390, 690]
-      ZOrder		      80
+      Position		      [455, 200, 475, 220]
+      ZOrder		      135
       ShowName		      off
       IconShape		      "round"
       Inputs		      "|++"
@@ -1107,59 +1094,25 @@ Model {
       SaturateOnIntegerOverflow	off
     }
     Block {
-      BlockType		      Sum
-      Name		      "Sum4"
-      SID		      "14"
-      Ports		      [2, 1]
-      Position		      [370, 390, 390, 410]
-      ZOrder		      70
-      ShowName		      off
-      IconShape		      "round"
-      Inputs		      "|++"
-      InputSameDT	      off
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      TransferFcn
-      Name		      "Transfer Fcn"
-      SID		      "2"
-      Position		      [220, 152, 280, 188]
-      ZOrder		      2
-      Numerator		      "num_r"
-      Denominator	      "den_r"
-    }
-    Block {
-      BlockType		      TransferFcn
-      Name		      "Transfer Fcn1"
-      SID		      "3"
-      Position		      [485, 152, 545, 188]
-      ZOrder		      3
-      Numerator		      "num_f"
-      Denominator	      "den_f"
-    }
-    Block {
-      BlockType		      ToWorkspace
-      Name		      "output\n"
-      SID		      "15"
-      Ports		      [1]
-      Position		      [705, 525, 765, 555]
-      ZOrder		      65
-      VariableName	      "y_out_continuous"
-      MaxDataPoints	      "inf"
-      SaveFormat	      "Structure With Time"
-      Save2DSignal	      "3-D array (concatenate along third dimension)"
-      FixptAsFi		      on
-      SampleTime	      "-1"
+      BlockType		      DiscreteFilter
+      Name		      "T"
+      SID		      "42"
+      Ports		      [1, 1]
+      Position		      [90, 12, 150, 48]
+      ZOrder		      137
+      InputPortMap	      "u0"
+      Numerator		      "t"
+      Denominator	      "[1]"
+      SampleTime	      "Ts"
     }
     Block {
       BlockType		      ToWorkspace
       Name		      "output\n1"
-      SID		      "25"
+      SID		      "43"
       Ports		      [1]
-      Position		      [745, 750, 805, 780]
-      ZOrder		      76
-      VariableName	      "y_out_discrete"
+      Position		      [800, 195, 860, 225]
+      ZOrder		      134
+      VariableName	      "y_out"
       MaxDataPoints	      "inf"
       SaveFormat	      "Structure With Time"
       Save2DSignal	      "3-D array (concatenate along third dimension)"
@@ -1169,10 +1122,10 @@ Model {
     Block {
       BlockType		      ToWorkspace
       Name		      "output\n2"
-      SID		      "6"
+      SID		      "44"
       Ports		      [1]
-      Position		      [705, 240, 765, 270]
-      ZOrder		      31
+      Position		      [800, 15, 860, 45]
+      ZOrder		      129
       VariableName	      "y_out_ideal"
       MaxDataPoints	      "inf"
       SaveFormat	      "Structure With Time"
@@ -1181,226 +1134,163 @@ Model {
       SampleTime	      "-1"
     }
     Line {
-      ZOrder		      2
-      SrcBlock		      "Transfer Fcn"
+      ZOrder		      77
+      SrcBlock		      "1/S"
       SrcPort		      1
-      DstBlock		      "Transfer Fcn1"
+      DstBlock		      "Discrete Filter2"
       DstPort		      1
     }
     Line {
-      ZOrder		      4
+      ZOrder		      78
       SrcBlock		      "Sum"
       SrcPort		      1
-      DstBlock		      "Transfer Fcn"
+      DstBlock		      "1/S"
       DstPort		      1
     }
     Line {
-      ZOrder		      5
-      SrcBlock		      "Transfer Fcn1"
+      ZOrder		      85
+      SrcBlock		      "Discrete Filter2"
       SrcPort		      1
-      Points		      [56, 0]
+      Points		      [97, 0]
       Branch {
-	ZOrder			7
-	Points			[0, 84]
+	ZOrder			84
+	DstBlock		"output\n2"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			83
+	Points			[0, 57]
 	Branch {
-	  ZOrder		  9
-	  Points		  [0, 1; 80, 0]
+	  ZOrder		  82
+	  Points		  [0, 53]
 	  Branch {
-	    ZOrder		    39
-	    Points		    [0, -89; 173, 0; 0, 364]
-	    DstBlock		    "Mux"
+	    ZOrder		    81
+	    DstBlock		    "R"
 	    DstPort		    1
 	  }
 	  Branch {
-	    ZOrder		    38
-	    DstBlock		    "output\n2"
+	    ZOrder		    80
+	    DstBlock		    "Scope3"
 	    DstPort		    1
 	  }
 	}
 	Branch {
-	  ZOrder		  8
-	  Points		  [-491, 0]
-	  DstBlock		  "Sum"
+	  ZOrder		  79
+	  Points		  [141, 0; 0, 78]
+	  DstBlock		  "Mux"
+	  DstPort		  1
+	}
+      }
+    }
+    Line {
+      ZOrder		      86
+      SrcBlock		      "Sum2"
+      SrcPort		      1
+      DstBlock		      "1/S1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      93
+      SrcBlock		      "Discrete Filter1"
+      SrcPort		      1
+      Points		      [98, 0]
+      Branch {
+	ZOrder			92
+	Points			[0, 67]
+	Branch {
+	  ZOrder		  91
+	  Points		  [0, 58]
+	  Branch {
+	    ZOrder		    90
+	    DstBlock		    "R1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    89
+	    DstBlock		    "Scope"
+	    DstPort		    1
+	  }
+	}
+	Branch {
+	  ZOrder		  88
+	  Points		  [140, 0; 0, -92]
+	  DstBlock		  "Mux"
 	  DstPort		  2
 	}
       }
       Branch {
-	ZOrder			6
-	DstBlock		"Scope"
+	ZOrder			87
+	DstBlock		"output\n1"
 	DstPort			1
       }
     }
     Line {
-      ZOrder		      17
-      SrcBlock		      "Continuous Process"
+      ZOrder		      94
+      SrcBlock		      "1/S1"
       SrcPort		      1
-      Points		      [57, 0]
-      Branch {
-	ZOrder			29
-	DstBlock		"Scope1"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			28
-	Points			[0, 140]
-	Branch {
-	  ZOrder		  31
-	  Points		  [80, 0]
-	  Branch {
-	    ZOrder		    37
-	    Points		    [0, -29; 180, 0; 0, 29]
-	    DstBlock		    "Mux"
-	    DstPort		    2
-	  }
-	  Branch {
-	    ZOrder		    36
-	    DstBlock		    "output\n"
-	    DstPort		    1
-	  }
-	}
-	Branch {
-	  ZOrder		  30
-	  Points		  [-472, 0]
-	  DstBlock		  "Sum1"
-	  DstPort		  2
-	}
-      }
-    }
-    Line {
-      ZOrder		      3
-      SrcBlock		      "Step"
-      SrcPort		      1
-      Points		      [21, 0]
-      Branch {
-	ZOrder			34
-	Points			[0, 230; 1, 0]
-	Branch {
-	  ZOrder		  56
-	  Points		  [0, 280]
-	  DstBlock		  "Sum2"
-	  DstPort		  1
-	}
-	Branch {
-	  ZOrder		  55
-	  DstBlock		  "Sum1"
-	  DstPort		  1
-	}
-      }
-      Branch {
-	ZOrder			33
-	DstBlock		"Sum"
-	DstPort			1
-      }
-    }
-    Line {
-      ZOrder		      19
-      SrcBlock		      "Sum1"
-      SrcPort		      1
-      DstBlock		      "Continuous Process3"
+      DstBlock		      "Sum3"
       DstPort		      1
     }
     Line {
-      ZOrder		      22
-      SrcBlock		      "Continuous Process3"
+      ZOrder		      95
+      SrcBlock		      "Sum3"
       SrcPort		      1
-      Points		      [15, 0]
-      Branch {
-	ZOrder			21
-	Points			[0, 60]
-	DstBlock		"Scope4"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			20
-	DstBlock		"Sum4"
-	DstPort			1
-      }
-    }
-    Line {
-      ZOrder		      23
-      SrcBlock		      "Sum4"
-      SrcPort		      1
-      DstBlock		      "Continuous Process"
+      DstBlock		      "Discrete Filter1"
       DstPort		      1
     }
     Line {
-      ZOrder		      24
-      SrcBlock		      "Step3"
+      ZOrder		      96
+      SrcBlock		      "Step4"
       SrcPort		      1
       Points		      [80, 0]
-      DstBlock		      "Sum4"
+      DstBlock		      "Sum3"
       DstPort		      2
     }
     Line {
-      ZOrder		      35
+      ZOrder		      97
       SrcBlock		      "Mux"
       SrcPort		      1
       DstBlock		      "Scope2"
       DstPort		      1
     }
     Line {
-      ZOrder		      40
-      SrcBlock		      "Sum2"
+      ZOrder		      98
+      SrcBlock		      "Step"
       SrcPort		      1
-      DstBlock		      "Discrete Regumator"
+      DstBlock		      "T"
       DstPort		      1
     }
     Line {
-      ZOrder		      47
-      SrcBlock		      "Discrete Process"
+      ZOrder		      99
+      SrcBlock		      "R"
       SrcPort		      1
-      Points		      [128, 0]
+      Points		      [-225, 0]
+      DstBlock		      "Sum"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      102
+      SrcBlock		      "T"
+      SrcPort		      1
+      Points		      [19, 0]
       Branch {
-	ZOrder			46
-	Points			[28, 0]
-	Branch {
-	  ZOrder		  45
-	  Points		  [0, 85]
-	  Branch {
-	    ZOrder		    57
-	    DstBlock		    "output\n1"
-	    DstPort		    1
-	  }
-	  Branch {
-	    ZOrder		    54
-	    Points		    [0, 47; 144, 0; 0, -262]
-	    DstBlock		    "Mux"
-	    DstPort		    3
-	  }
-	}
-	Branch {
-	  ZOrder		  42
-	  DstBlock		  "Scope3"
-	  DstPort		  1
-	}
-      }
-      Branch {
-	ZOrder			41
-	Points			[0, 126; -543, 0]
+	ZOrder			101
+	Points			[0, 180]
 	DstBlock		"Sum2"
-	DstPort			2
+	DstPort			1
+      }
+      Branch {
+	ZOrder			100
+	DstBlock		"Sum"
+	DstPort			1
       }
     }
     Line {
-      ZOrder		      49
-      SrcBlock		      "Discrete Regumator"
+      ZOrder		      103
+      SrcBlock		      "R1"
       SrcPort		      1
-      DstBlock		      "Sum3"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      50
-      SrcBlock		      "Sum3"
-      SrcPort		      1
-      DstBlock		      "Discrete Process"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      52
-      SrcBlock		      "Step4"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Sum3"
+      Points		      [-240, 0]
+      DstBlock		      "Sum2"
       DstPort		      2
     }
   }
