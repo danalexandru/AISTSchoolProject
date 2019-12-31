@@ -5,15 +5,19 @@ function [] = simulate_model_temperature_pressure(dict_d_p_tf, dict_d_r_tf, inde
 num_d_p = dict_d_p_tf('nominator');
 den_d_p = dict_d_p_tf('denominator');
 
-num_d_r = dict_d_r_tf('nominator');
-den_d_r = dict_d_r_tf('denominator');
+%% Extract RST polinomials
+r = dict_d_r_tf('R')';
+s = dict_d_r_tf('S')';
+t = dict_d_r_tf('T')';
 
-%% Assign Nominator and Denominator to Workspace
+
+%% Assign values to Workspace
 assignin('base', 'num_d_p', num_d_p);
 assignin('base', 'den_d_p', den_d_p);
 
-assignin('base', 'num_d_r', num_d_r);
-assignin('base', 'den_d_r', den_d_r);
+assignin('base', 'r', r);
+assignin('base', 's', s);
+assignin('base', 't', t);
 
 %% Simulate the model
 load_system('model_34.mdl');
