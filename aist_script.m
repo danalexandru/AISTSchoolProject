@@ -52,4 +52,10 @@ Ts = 0.1;
 simulate_model_temperature_pressure(dict_d_p_tf_3, dict_d_r_tf_3, 3);
 simulate_model_temperature_pressure(dict_d_p_tf_4, dict_d_r_tf_4, 4);
 
+%% Optimisation portion
+csv_file = 'castr_aist_project_dataset.csv';
+
+dict_ident_data = get_identification_data(csv_file);
+struct_sol = get_optimisation_results(dict_ident_data);
+
 end
