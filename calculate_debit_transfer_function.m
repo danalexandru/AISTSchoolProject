@@ -3,6 +3,7 @@
 function[dict_p_tf] = calculate_debit_transfer_function(dict_debit_system)
 %% Retrieve required parameters;
 F0 = dict_debit_system('initial_debit');
+% D = dict_debit_system('diameter') * 10^-3;
 D = dict_debit_system('diameter');
 L = dict_debit_system('length');
 alpha = dict_debit_system('flow_coefficient');

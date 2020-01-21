@@ -17,6 +17,23 @@ dict_p_tf_2 = calculate_debit_transfer_function(dict_debit_system_2);
 dict_f_tf_1 = calculate_fixed_part_transfer_funcion(dict_p_tf_1, dict_e_tf_1, dict_t_tf_1);
 dict_f_tf_2 = calculate_fixed_part_transfer_funcion(dict_p_tf_2, dict_e_tf_2, dict_t_tf_2);
 
+%% Calculate continuous regulators
+dict_pc_1 = get_performance_criteria(dict_debit_system_1('type'), 1);
+[dict_pc_1, dict_r_tf_1] = calculate_regulator(dict_p_tf_1, dict_e_tf_1, dict_f_tf_1, dict_pc_1);
+
+dict_pc_2 = get_performance_criteria(dict_debit_system_2('type'), 2);
+[dict_pc_2, dict_r_tf_2] = calculate_regulator(dict_p_tf_2, dict_e_tf_2, dict_f_tf_2, dict_pc_2);
+
+%% Simulate continuous debit model
+dict_frac_f_1 = get_nomilator_denomilator_from_tf(dict_f_tf_1);
+dict_frac_f_2 = get_nomilator_denomilator_from_tf(dict_f_tf_2);
+
+dict_frac_r_1 = get_nomilator_denomilator_from_tf(dict_r_tf_1);
+dict_frac_r_2 = get_nomilator_denomilator_from_tf(dict_r_tf_2);
+
+simulate_model_continuous_debit(dict_frac_f_1, dict_frac_r_1, 1);
+simulate_model_continuous_debit(dict_frac_f_2, dict_frac_r_2, 2);
+
 %% Get the discrete transfer function for the regulator and the fixed part
 Ts = 0.1;
 
